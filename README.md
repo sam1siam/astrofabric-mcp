@@ -6,6 +6,8 @@
 
 <p>
   <a href="https://glama.ai/mcp/servers/sam1siam/astrofabric-mcp"><img src="https://glama.ai/mcp/servers/sam1siam/astrofabric-mcp/badges/score.svg" alt="AstroFabric MCP server score on Glama" /></a>
+  <a href="https://mcpservers.org/servers/www-astrofabric-ai-docs"><img src="https://mcpservers.org/badge.svg" alt="Listed on mcpservers.org" /></a>
+  <a href="https://lobehub.com/mcp/sam1siam-astrofabric-mcp"><img src="https://lobehub.com/badge/mcp/sam1siam-astrofabric-mcp" alt="AstroFabric on LobeHub" /></a>
   <a href="https://www.npmjs.com/package/astrofabric"><img src="https://img.shields.io/npm/v/astrofabric?label=CLI%20on%20npm&color=2a78d6" alt="AstroFabric CLI on npm" /></a>
   <a href="https://www.astrofabric.ai/docs"><img src="https://img.shields.io/badge/docs-astrofabric.ai-2a78d6" alt="Docs" /></a>
 </p>
