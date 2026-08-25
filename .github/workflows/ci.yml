@@ -1,0 +1,29 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate JSON manifests
+        run: |
+          node -e "JSON.parse(require('fs').readFileSync('glama.json','utf8')); console.log('glama.json ok')"
+          node -e "JSON.parse(require('fs').readFileSync('lhm.plugin.json','utf8')); console.log('lhm.plugin.json ok')"
+
+      - name: Docker image builds
+        run: docker build -t astrofabric-connector .
+
+      - name: Hosted endpoint is reachable
+        run: |
+          code=$(curl -s -o /dev/null -w "%{http_code}" -X POST https://www.astrofabric.ai/api/mcp \
+            -H "Content-Type: application/json" \
+            -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}')
+          echo "endpoint answered HTTP $code"
+          # 401 is the expected unauthenticated answer - it proves the server is up.
+          test "$code" = "401" -o "$code" = "200" -o "$code" = "400"
