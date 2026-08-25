@@ -4,6 +4,11 @@
 
 # AstroFabric MCP Server
 
+<p>
+  <a href="https://www.npmjs.com/package/astrofabric"><img src="https://img.shields.io/npm/v/astrofabric?label=CLI%20on%20npm&color=2a78d6" alt="AstroFabric CLI on npm" /></a>
+  <a href="https://www.astrofabric.ai/docs"><img src="https://img.shields.io/badge/docs-astrofabric.ai-2a78d6" alt="Docs" /></a>
+</p>
+
 **AstroFabric** is an agentic AI platform: autonomous agents that carry work across growth, revenue and digital operations from objective to outcome. This MCP server puts the whole platform behind your editor - give it an open-ended objective in plain language and it plans and executes the mission: market and competitive intelligence, site and technical audits, verified prospect lists from live buying signals, outbound, content and demand plans, finished creative from images and video to designed pages, and delivery into 100+ connected apps - returning the finished result with the evidence behind it.
 
 This repository is the connector for the **hosted** AstroFabric MCP endpoint. There is nothing to build or run locally: you add the remote server URL with your API key and start working.
@@ -53,6 +58,19 @@ Ask for outcomes, not steps:
 > "Tear down competitor.com - ads, keywords, hiring, positioning - and give me the three plays to take ground."
 
 Results start with a `[thread:<id>]` line. Pass that id as `thread_id` on follow-ups ("verify those emails", "format them for LinkedIn Ads") and the agent continues with full memory of everything already asked and delivered. It may reply with a clarifying question; answer it the same way.
+
+## Prefer a terminal? The CLI
+
+The same platform ships as a zero-dependency CLI ([`astrofabric` on npm](https://www.npmjs.com/package/astrofabric)):
+
+```bash
+npm install -g astrofabric
+
+astrofabric login --key ek_live_...
+astrofabric run "Audit example.com and list the top 5 fixes"
+```
+
+In a coding agent (Claude Code, Codex, Gemini CLI), the whole setup is one prompt: *"Install the AstroFabric CLI for me, then run `astrofabric docs` to learn it."* And `astrofabric connect cursor` (or `claude-code`, `codex`, `gemini`, `vscode`, `windsurf`) prints ready-to-paste MCP config per client.
 
 ## Notes
 
