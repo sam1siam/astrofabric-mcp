@@ -12,7 +12,7 @@
 
 **AstroFabric** is an agentic AI platform: autonomous agents that carry work across growth, revenue and digital operations from objective to outcome. This MCP server puts the whole platform behind your editor - give it an open-ended objective in plain language and it plans and executes the mission: market and competitive intelligence, site and technical audits, verified prospect lists from live buying signals, outbound, content and demand plans, finished creative from images and video to designed pages, and delivery into 100+ connected apps - returning the finished result with the evidence behind it.
 
-This repository is the connector for the **hosted** AstroFabric MCP endpoint. There is nothing to build or run locally: you add the remote server URL with your API key and start working.
+This repository is both the connector for the **hosted** AstroFabric MCP endpoint (add the remote URL with your API key and start working) and a runnable **stdio server** for clients that prefer a local process - see [Run it locally](#run-it-locally-stdio).
 
 - Website: https://www.astrofabric.ai
 - Endpoint: `https://www.astrofabric.ai/api/mcp` (Streamable HTTP)
