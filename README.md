@@ -23,9 +23,52 @@ This repository is both the connector for the **hosted** AstroFabric MCP endpoin
 1. An AstroFabric workspace on a paid plan - sign up at https://www.astrofabric.ai
 2. An API key: in the AstroFabric console, open **API keys** → **Create key**, and copy the `ek_live_...` token (it is shown once).
 
-## Setup for Cline
+## Setup
 
-Add the server to your `cline_mcp_settings.json` (Cline → MCP Servers → Configure, or *Remote Servers* → add by URL):
+Every client uses the same endpoint (`https://www.astrofabric.ai/api/mcp`) and the same key. Pick yours:
+
+<details>
+<summary><b>Claude Code</b></summary>
+
+```bash
+claude mcp add --transport http astrofabric https://www.astrofabric.ai/api/mcp --header "Authorization: Bearer ek_live_YOUR_KEY_HERE"
+```
+
+</details>
+
+<details>
+<summary><b>claude.ai / Claude Desktop</b> (OAuth - no key needed)</summary>
+
+Add a custom connector with the bare URL and sign in when prompted - the server walks you through AstroFabric sign-in and hands the client a scoped key you can revoke from the console:
+
+```
+https://www.astrofabric.ai/api/mcp
+```
+
+</details>
+
+<details>
+<summary><b>Cursor</b></summary>
+
+Add to `.cursor/mcp.json` (project) or `~/.cursor/mcp.json` (global):
+
+```json
+{
+  "mcpServers": {
+    "astrofabric": {
+      "url": "https://www.astrofabric.ai/api/mcp",
+      "headers": { "Authorization": "Bearer ek_live_YOUR_KEY_HERE" }
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Cline</b></summary>
+
+Add to `cline_mcp_settings.json` (Cline → MCP Servers → Configure, or *Remote Servers* → add by URL):
 
 ```json
 {
@@ -42,6 +85,76 @@ Add the server to your `cline_mcp_settings.json` (Cline → MCP Servers → Conf
   }
 }
 ```
+
+</details>
+
+<details>
+<summary><b>VS Code (Copilot agent mode)</b></summary>
+
+Add to `.vscode/mcp.json`:
+
+```json
+{
+  "servers": {
+    "astrofabric": {
+      "type": "http",
+      "url": "https://www.astrofabric.ai/api/mcp",
+      "headers": { "Authorization": "Bearer ek_live_YOUR_KEY_HERE" }
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Codex</b></summary>
+
+Add to `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.astrofabric]
+url = "https://www.astrofabric.ai/api/mcp"
+http_headers = { "Authorization" = "Bearer ek_live_YOUR_KEY_HERE" }
+```
+
+</details>
+
+<details>
+<summary><b>Gemini CLI</b></summary>
+
+Add to `~/.gemini/settings.json` under `mcpServers`:
+
+```json
+{
+  "astrofabric": {
+    "httpUrl": "https://www.astrofabric.ai/api/mcp",
+    "headers": { "Authorization": "Bearer ek_live_YOUR_KEY_HERE" }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Windsurf</b></summary>
+
+Add to `~/.codeium/windsurf/mcp_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "astrofabric": {
+      "serverUrl": "https://www.astrofabric.ai/api/mcp",
+      "headers": { "Authorization": "Bearer ek_live_YOUR_KEY_HERE" }
+    }
+  }
+}
+```
+
+</details>
+
+Shortcut: with the [CLI](#prefer-a-terminal-the-cli) installed, `astrofabric connect <client>` prints your client's config with your key already filled in.
 
 If your client cannot send headers, the key can ride the URL instead: `https://www.astrofabric.ai/api/mcp?key=ek_live_YOUR_KEY_HERE` - treat that whole URL as a secret.
 
