@@ -38,7 +38,7 @@ Important details:
 
 ## Step 3 - verify
 
-Reload the MCP servers. The server `astrofabric` should connect and list one tool: `marketing_agent` (or the full catalog when `?tools=all` was used).
+Reload the MCP servers. The server `astrofabric` should connect and list one tool: `mission_agent` (or the full catalog when `?tools=all` was used).
 
 If it fails to connect:
 

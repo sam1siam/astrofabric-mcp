@@ -41,7 +41,7 @@ If your client cannot send headers, the key can ride the URL instead: `https://w
 
 ### Two tool surfaces
 
-- **Default** (the URL above): one tool, `marketing_agent` - the autonomous mission runner. Best for editors: one entry in your tool list, the whole platform behind it.
+- **Default** (the URL above): one tool, `mission_agent` - the autonomous mission runner. Best for editors: one entry in your tool list, the whole platform behind it.
 - **Full catalog**: append `?tools=all` to the URL to also expose every individual data and execution tool (SEO and keyword intelligence, ad libraries, buyer-intent search, email finding and verification, creative generation, and more), plus any MCP servers your workspace has connected.
 
 ## Using it
