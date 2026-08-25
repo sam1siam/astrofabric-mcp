@@ -60,6 +60,24 @@ Ask for outcomes, not steps:
 
 Results start with a `[thread:<id>]` line. Pass that id as `thread_id` on follow-ups ("verify those emails", "format them for LinkedIn Ads") and the agent continues with full memory of everything already asked and delivered. It may reply with a clarifying question; answer it the same way.
 
+## Run it locally (stdio)
+
+This repository is also a runnable stdio MCP server - the same `mission_agent` tool, executing missions through the AstroFabric platform with your key. For clients that prefer a local process over a remote URL:
+
+```json
+{
+  "mcpServers": {
+    "astrofabric": {
+      "command": "npx",
+      "args": ["-y", "github:sam1siam/astrofabric-mcp"],
+      "env": { "ASTROFABRIC_API_KEY": "ek_live_YOUR_KEY_HERE" }
+    }
+  }
+}
+```
+
+Or with Docker: `docker build -t astrofabric-mcp . && docker run -i --rm -e ASTROFABRIC_API_KEY=ek_live_... astrofabric-mcp`
+
 ## Prefer a terminal? The CLI
 
 The same platform ships as a zero-dependency CLI ([`astrofabric` on npm](https://www.npmjs.com/package/astrofabric)):

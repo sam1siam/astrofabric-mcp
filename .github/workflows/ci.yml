@@ -6,18 +6,28 @@ on:
   pull_request:
 
 jobs:
-  validate:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
       - name: Validate JSON manifests
         run: |
           node -e "JSON.parse(require('fs').readFileSync('glama.json','utf8')); console.log('glama.json ok')"
           node -e "JSON.parse(require('fs').readFileSync('lhm.plugin.json','utf8')); console.log('lhm.plugin.json ok')"
 
+      - name: Install
+        run: npm install
+
+      - name: Stdio server smoke (initialize, tools/list, keyless call)
+        run: npm test
+
       - name: Docker image builds
-        run: docker build -t astrofabric-connector .
+        run: docker build -t astrofabric-mcp .
 
       - name: Hosted endpoint is reachable
         run: |
