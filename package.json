@@ -1,14 +1,21 @@
 {
   "name": "astrofabric-mcp",
-  "version": "1.1.0",
-  "description": "AstroFabric MCP server (stdio): a mission_agent tool that hands open-ended growth, revenue and digital-operations objectives to the AstroFabric platform and returns the finished result.",
+  "version": "1.1.1",
+  "description": "AstroFabric MCP server (stdio): agentic AI for business intelligence, company and contact discovery, verification, enrichment, signals, lists and governed delivery.",
   "license": "MIT",
   "type": "module",
   "main": "server.mjs",
-  "bin": { "astrofabric-mcp": "server.mjs" },
-  "repository": { "type": "git", "url": "git+https://github.com/sam1siam/astrofabric-mcp.git" },
+  "bin": {
+    "astrofabric-mcp": "server.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sam1siam/astrofabric-mcp.git"
+  },
   "homepage": "https://www.astrofabric.ai/docs",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "start": "node server.mjs",
     "test": "node test/smoke.mjs"

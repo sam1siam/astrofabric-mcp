@@ -18,7 +18,7 @@ import { z } from 'zod';
 const BASE_URL = (process.env.ASTROFABRIC_BASE_URL ?? 'https://www.astrofabric.ai').replace(/\/+$/, '');
 const MISSION_TIMEOUT_MS = 720_000; // sync missions can legitimately run for minutes
 
-const server = new McpServer({ name: 'astrofabric', version: '1.1.0' });
+const server = new McpServer({ name: 'astrofabric', version: '1.1.1' });
 
 const errText = (text) => ({ content: [{ type: 'text', text }], isError: true });
 
@@ -29,13 +29,12 @@ server.registerTool(
     annotations: {
       title: 'Mission Agent (autonomous missions)',
       readOnlyHint: false,
-      /* Writes inside a mission are approval-gated and campaign pushes land
-       * paused, so the autonomous surface is non-destructive. */
-      destructiveHint: false,
+      // Missions can write to connected systems under workspace approval settings.
+      destructiveHint: true,
       openWorldHint: true,
     },
     description:
-      'Give AstroFabric an open-ended objective across growth, revenue or digital operations in plain language and it plans and executes the whole mission autonomously: research markets, audit sites, analyze competitors, build prospect lists from buyer intent and signals, verify emails, draft outbound, produce creative, run data work in the code sandbox, deliver into connected apps, and more. The result starts with a [thread:<id>] line - pass that id as thread_id on follow-ups ("verify those emails", "format them for LinkedIn Ads") and the agent remembers everything already asked and delivered. It may reply with a clarifying question; answer it the same way. Prefer this over the individual tools for anything multi-step.',
+      "Give AstroFabric a business intelligence objective in plain language. It plans and executes a data mission: discover companies and contacts, verify emails, enrich records, research business signals, score account fit, build lists and audiences, and deliver results into connected systems under workspace budgets and approval settings. The result starts with a [thread:<id>] line; pass that id as thread_id on follow-ups to continue the mission. It may reply with a clarifying question; answer it the same way.",
     inputSchema: {
       objective: z
         .string()

@@ -163,7 +163,7 @@ If your client cannot send headers, the key can ride the URL instead: `https://w
 ### Two tool surfaces
 
 - **Default** (the URL above): one tool, `mission_agent` - the autonomous mission runner. Best for editors: one entry in your tool list, the whole platform behind it.
-- **Full catalog**: append `?tools=all` to the URL to also expose every individual data and execution tool (SEO and keyword intelligence, ad libraries, buyer-intent search, email finding and verification, creative generation, and more), plus any MCP servers your workspace has connected.
+- **Full catalog**: append `?tools=all` to the URL to also expose every individual data and execution tool (company and person data, enrichment, email verification, technographics, business signals, lists, audiences and delivery), plus any MCP servers your workspace has connected.
 
 ## Using it
 
@@ -171,7 +171,7 @@ Ask for outcomes, not steps:
 
 > "Build a list of 40 companies showing buying intent on warehouse robotics, verify emails, and draft a first touch for each."
 
-> "Tear down competitor.com - ads, keywords, hiring, positioning - and give me the three plays to take ground."
+> "Enrich this account list with company size, technology stack and recent hiring signals, then return the best-fit accounts with supporting evidence."
 
 Results start with a `[thread:<id>]` line. Pass that id as `thread_id` on follow-ups ("verify those emails", "format them for LinkedIn Ads") and the agent continues with full memory of everything already asked and delivered. It may reply with a clarifying question; answer it the same way.
 
@@ -201,7 +201,7 @@ The same platform ships as a zero-dependency CLI ([`astrofabric` on npm](https:/
 npm install -g astrofabric
 
 astrofabric login --key ek_live_...
-astrofabric run "Audit example.com and list the top 5 fixes"
+astrofabric run "Find 20 companies hiring SDRs, enrich their profiles and return a verified prospect list"
 ```
 
 In a coding agent (Claude Code, Codex, Gemini CLI), the whole setup is one prompt: *"Install the AstroFabric CLI for me, then run `astrofabric docs` to learn it."* And `astrofabric connect cursor` (or `claude-code`, `codex`, `gemini`, `vscode`, `windsurf`) prints ready-to-paste MCP config per client.

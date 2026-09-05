@@ -2,7 +2,7 @@
   "author": "AstroFabric",
   "authorUrl": "https://github.com/sam1siam",
   "cloudEndpoint": "https://www.astrofabric.ai/api/mcp",
-  "description": "Autonomous AI agents across growth, revenue and digital operations. Give mission_agent an open-ended objective in plain language - market and competitive intelligence, site audits, verified prospect lists from live buying signals, outbound, content and demand plans, finished creative, delivery into 100+ connected apps - and it plans and executes the whole mission, returning evidence-backed results with thread memory across follow-ups.",
+  "description": "Agentic AI for business intelligence. Autonomous agents discover companies and contacts, verify and enrich records, monitor business signals, and deliver structured lists and audiences into connected systems.",
   "homepage": "https://www.astrofabric.ai",
   "icon": "https://www.astrofabric.ai/icons/icon-512.png",
   "identifier": "sam1siam-astrofabric-mcp",
@@ -10,18 +10,17 @@
   "tags": [
     "ai agents",
     "agentic ai",
-    "autonomous agents",
-    "growth",
-    "revenue operations",
-    "seo",
-    "competitive intelligence",
-    "outbound",
-    "creative"
+    "business intelligence",
+    "company data",
+    "contact verification",
+    "data enrichment",
+    "business signals",
+    "revenue operations"
   ],
   "tools": [
     {
       "name": "mission_agent",
-      "description": "Give AstroFabric an open-ended objective across growth, revenue or digital operations in plain language and it plans and executes the whole mission autonomously: research markets, audit sites, analyze competitors, build prospect lists from buyer intent and signals, verify emails, draft outbound, produce creative, run data work in the code sandbox, deliver into connected apps, and more. The result starts with a [thread:<id>] line - pass that id as thread_id on follow-ups and the agent remembers everything already asked and delivered. It may reply with a clarifying question; answer it the same way. Prefer this over the individual tools for anything multi-step.",
+      "description": "Give AstroFabric a business intelligence objective in plain language. It plans and executes a data mission: discover companies and contacts, verify emails, enrich records, research business signals, score account fit, build lists and audiences, and deliver results into connected systems under workspace budgets and approval settings. The result starts with a [thread:<id>] line; pass that id as thread_id on follow-ups to continue the mission. It may reply with a clarifying question; answer it the same way.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -63,5 +62,5 @@
       }
     }
   ],
-  "version": "1.0.2"
+  "version": "1.0.3"
 }
