@@ -1,0 +1,12 @@
+{
+  "name": "astrofabric",
+  "version": "1.0.0",
+  "description": "Agentic AI for business intelligence: find and verify companies and business contacts, enrich lists, track buying signals and deliver results into your connected tools.",
+  "mcpServers": {
+    "astrofabric": {
+      "httpUrl": "https://www.astrofabric.ai/api/mcp",
+      "timeout": 800000
+    }
+  },
+  "contextFileName": "GEMINI.md"
+}

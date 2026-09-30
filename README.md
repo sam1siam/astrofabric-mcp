@@ -125,7 +125,13 @@ http_headers = { "Authorization" = "Bearer ek_live_YOUR_KEY_HERE" }
 <details>
 <summary><b>Gemini CLI</b></summary>
 
-Add to `~/.gemini/settings.json` under `mcpServers`:
+Install the extension (OAuth - the first call opens AstroFabric sign-in in your browser):
+
+```bash
+gemini extensions install https://github.com/sam1siam/astrofabric-mcp
+```
+
+Or, with an API key, add to `~/.gemini/settings.json` under `mcpServers`:
 
 ```json
 {
@@ -134,6 +140,17 @@ Add to `~/.gemini/settings.json` under `mcpServers`:
     "headers": { "Authorization": "Bearer ek_live_YOUR_KEY_HERE" }
   }
 }
+```
+
+</details>
+
+<details>
+<summary><b>ChatGPT and the Gemini app</b> (OAuth - no key needed)</summary>
+
+Chat assistants stop a tool call after about a minute, so they use the chat surface, where a mission starts in the background and its result is collected when it is ready. Add it as a custom connector (ChatGPT developer mode) or a connected app (Gemini) and sign in when prompted:
+
+```
+https://www.astrofabric.ai/api/mcp/chat
 ```
 
 </details>
@@ -160,10 +177,11 @@ Shortcut: with the [CLI](#prefer-a-terminal-the-cli) installed, `astrofabric con
 
 If your client cannot send headers, the key can ride the URL instead: `https://www.astrofabric.ai/api/mcp?key=ek_live_YOUR_KEY_HERE` - treat that whole URL as a secret.
 
-### Two tool surfaces
+### Three tool surfaces
 
 - **Default** (the URL above): one tool, `mission_agent` - the autonomous mission runner. Best for editors: one entry in your tool list, the whole platform behind it.
 - **Full catalog**: append `?tools=all` to the URL to also expose every individual data and execution tool (company and person data, enrichment, email verification, technographics, business signals, lists, audiences and delivery), plus any MCP servers your workspace has connected.
+- **Chat** (`https://www.astrofabric.ai/api/mcp/chat`): `start_mission` and `get_mission_result`, for chat assistants whose tool calls stop at about a minute. The mission runs in the background and each call returns within about 35 seconds.
 
 ## Using it
 
