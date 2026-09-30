@@ -181,7 +181,7 @@ If your client cannot send headers, the key can ride the URL instead: `https://w
 
 - **Default** (the URL above): one tool, `mission_agent` - the autonomous mission runner. Best for editors: one entry in your tool list, the whole platform behind it.
 - **Full catalog**: append `?tools=all` to the URL to also expose every individual data and execution tool (company and person data, enrichment, email verification, technographics, business signals, lists, audiences and delivery), plus any MCP servers your workspace has connected.
-- **Chat** (`https://www.astrofabric.ai/api/mcp/chat`): `start_mission` and `get_mission_result`, for chat assistants whose tool calls stop at about a minute. The mission runs in the background and each call returns within about 35 seconds.
+- **Chat** (`https://www.astrofabric.ai/api/mcp/chat`): `start_mission` and `get_mission_result`, for chat assistants whose tool calls stop at about a minute. The mission runs in the background and each call returns within about 30 seconds.
 
 ## Using it
 
